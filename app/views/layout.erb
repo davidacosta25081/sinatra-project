@@ -15,15 +15,17 @@
          </tr>
          <% if logged_in? %>
          <tr valign = "top">
-            <td bgcolor = "#aaa" width = "50">
+            <td bgcolor = "#aaa" width = "15%">
                <b><p>Main menu</p></b><br />
 
-               <a href="/tweets"><button type="button">Main Page</button></a><br />
+               <a href="/books"><button type="button">Main Page</button></a><br /><br />
 
-               <a href="/books/new"><button type="button">New Book</button></a><br />
+               <a href="/books/new"><button type="button">New Book</button></a><br /><br/>
+
+               <a href="/discover"><button type="button">Discover</button></a><br /><br/>
+               <a href="/logout"><button type="button">LogOut</button></a><br /><br/>
 
 
-               <a href="/logout"><button type="button">LogOut</button></a><br />
 
             </td>
             <%end %>

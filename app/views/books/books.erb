@@ -3,39 +3,46 @@
   <div class="row">
     <div class="col-sm-4 well">
       <div class="well">
-        <h4>Welcome, <%= @user.username.capitalize %></h4>
+        <% if @user.books.count == 1 %>
+    <h4>You currently have 1 book <%= @user.username.capitalize %></h4>
+
+ <% else %>
+      <h4>You currently have <%= @user.books.count%> books <%= @user.username.capitalize %></h4>
+
+<% end %>
+
       </div>
 
 
+
+
+
+
+
+    <% @books.each {|book| %>
+      <div class="col-sm-9">
+              <div class="well">
+
+                <% if @user == book.user %>
+                <p><%=book.description%></p>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <form action="/books/<%=book.id%>/edit" method="get">
+                        <input type="submit" class="btn btn-default btn-sm" value="Edit">
+                      </form>
+                    </div>
+                    <div class="col-sm-6">
+                      <form action="/books/<%=book.id%>/delete" method="post">
+                        <input id="hidden" type="hidden" name="_method" value="DELETE">
+                        <input type="submit" class="btn btn-default btn-sm" value="Delete">
+                      </form>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% } %>
     </div>
-    <div class="col-sm-8">
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default text-left">
-            <div class="panel-body">
-              <form method="post" action="/books">
-                <p contenteditable="true"><input class="book" type="text" name="description" id="description"></p>
-                <input type="submit" class="btn btn-primary btn-sm" value="Tweet It!">
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <% @books.each {|book| %>
-
-          <div class="col-sm-9">
-            <div class="well">
-          <% if @user == book.user %>
-
-              <p><%=book.description%></p>
-
-
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% } %>
   </div>
-</div>

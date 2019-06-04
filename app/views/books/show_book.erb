@@ -1,0 +1,24 @@
+<div class="jumbotron">
+	<div class="wrapper">
+	  <div class="content">
+      <br></br>
+      <h3><strong>Your new Book!</strong></h3>
+      <p><%=@book.description%></p><br/>
+      <div class="row">
+        <div class="col-sm-6">
+          <form action="/books/<%=@book.id%>/edit" method="get">
+            <input type="submit" class="btn btn-default btn-sm" value="Edit Book">
+          </form>
+        </div>
+        <div class="col-sm-6">
+          <form action="/tweets/<%=@book.id%>/delete" method="post">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" class="btn btn-default btn-sm" value="Delete Book">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+	<br/><br/>
+	<a href="/books">Back to Main Page</a>
+</div>

@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
 
+
+
+
+
   get '/books' do
     if !logged_in?
       redirect "/login"
@@ -19,9 +23,9 @@ class BooksController < ApplicationController
 end
 
 post '/books' do
-    @book = Book.new(description: params[:content], status: "WL")
+    @book = Book.new(title: params[:title],author: params[:author],pages_completed: params[:pages],description: params[:description]) 
     @book.user = current_user
-    if @tweet.save
+    if @book.save
       redirect "/books/#{@book.id}"
     else
       redirect "/books/new"
@@ -54,15 +58,15 @@ post '/books' do
 
   patch '/books/:id' do
     @book = Book.find(params[:id])
-    @book.update(description: params[:content], status: params[:status])
-    if @tweet.save
+    @book.update(description: params[:description], status: "WL")
+    if @book.save
       redirect "/books/#{@book.id}"
     else
       redirect "/books/#{@book.id}/edit"
     end
   end
 
-  delete '/tweets/:id/delete' do
+  delete '/books/:id/delete' do
     if !logged_in?
       redirect '/login'
     else

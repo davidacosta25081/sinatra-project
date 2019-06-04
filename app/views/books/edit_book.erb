@@ -1,0 +1,13 @@
+<div class="jumbotron">
+	<div class="wrapper">
+	  <div class="content">
+			<br></br>
+      <h2>EDIT BOOK</h2>
+      <form method="post" action="/books/<%=@book.id%>">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+        <input type="text" name="description" value="<%=@book.description%>" id="description">
+        <input type="submit" value="Edit">
+      </form>
+    </div>
+  </div>
+</div>
