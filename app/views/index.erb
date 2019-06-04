@@ -1,5 +1,12 @@
 
 
 
+<nav>
+  <% if !logged_in? %>
 
-<h2>Hola chicos!!!!</h2>
+    <p><font size="4" color="000000"><strong>Please Sign In or Sign Up below:</strong></font></p><br/><br/>
+    <a href="/login" class="btn btn-default"> Sign In </a><br/><br/>
+    <a href="/signup">Sign Up</a>
+  <%end %>
+
+</nav>
