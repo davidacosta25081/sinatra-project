@@ -10,6 +10,13 @@ class UsersController < ApplicationController
 
   post '/signup' do
       @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
+       User.all.each {|user|
+
+       if @user.username == user.username
+       flash[:message] = "Username is already taken please choose a different one"
+       redirect to '/signup'
+     end }
+
       if @user.save
        session[:user_id] = @user.id
        redirect to '/books'
