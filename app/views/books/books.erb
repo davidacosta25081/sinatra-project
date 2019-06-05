@@ -7,35 +7,34 @@
     <h4>You currently have 1 book <%= @user.username.capitalize %></h4>
 
  <% else %>
-      <h4>You currently have <%= @user.books.count%> books <%= @user.username.capitalize %></h4>
+      <h3>You currently have <%= @user.books.count%> books <%= @user.username.capitalize %></h3><br/>
 
 <% end %>
 
       </div>
-
-
-
-
-
-
-
-    <% @books.each {|book| %>
+      <% @books.each_with_index {|book,index| %>
       <div class="col-sm-9">
               <div class="well">
 
                 <% if @user == book.user %>
-                <p><%=book.description%></p>
+                <p><h3><b>Book</b> <%=index + 1%></h3></p>
+                <p><b>Title:</b> <%=book.title%></p>
+                <p><b>Author:</b> <%=book.author%></p>
+                <p><b>Pages completed:</b> <%=book.pages_completed%></p>
+                <p><b>Description:</b> <%=book.description%></p>
+
+
                   <div class="row">
                     <div class="col-sm-6">
                       <form action="/books/<%=book.id%>/edit" method="get">
-                        <input type="submit" class="btn btn-default btn-sm" value="Edit">
+                        <input type="submit" class="btn btn-default btn-lg" value="Edit">
                       </form>
                     </div>
                     <div class="col-sm-6">
                       <form action="/books/<%=book.id%>/delete" method="post">
                         <input id="hidden" type="hidden" name="_method" value="DELETE">
-                        <input type="submit" class="btn btn-default btn-sm" value="Delete">
-                      </form>
+                        <input type="submit" class="btn btn-default btn-lg" value="Delete">
+                      </form><br/><br/>
                     </div>
                   </div>
                 <% end %>

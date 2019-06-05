@@ -2,7 +2,9 @@ class BooksController < ApplicationController
 
 
 
-
+get '/books/discover' do
+  erb :"books/discover"
+end
 
   get '/books' do
     if !logged_in?
@@ -23,7 +25,7 @@ class BooksController < ApplicationController
 end
 
 post '/books' do
-    @book = Book.new(title: params[:title],author: params[:author],pages_completed: params[:pages],description: params[:description]) 
+    @book = Book.new(title: params[:title],author: params[:author],pages_completed: params[:pages],description: params[:description])
     @book.user = current_user
     if @book.save
       redirect "/books/#{@book.id}"
@@ -58,7 +60,7 @@ post '/books' do
 
   patch '/books/:id' do
     @book = Book.find(params[:id])
-    @book.update(description: params[:description], status: "WL")
+    @book.update(title: params[:title],author: params[:author],pages_completed: params[:pages],description: params[:description])
     if @book.save
       redirect "/books/#{@book.id}"
     else

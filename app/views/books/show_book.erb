@@ -2,9 +2,14 @@
 	<div class="wrapper">
 	  <div class="content">
       <br></br>
-      <h3><strong>Your new Book!</strong></h3>
-      <p><%=@book.description%></p><br/>
-      <div class="row">
+      <h3><strong>Your new Book!</strong></h3><br/>
+
+      <p><b>Title:</b> <%=@book.title%></p>
+			<p><b>Author:</b> <%=@book.author%></p>
+      <p><b>Pages completed:</b> <%=@book.pages_completed%></p>
+      <p><b>Description:</b> <%=@book.description%></p><br/>
+
+			<div class="row">
         <div class="col-sm-6">
           <form action="/books/<%=@book.id%>/edit" method="get">
             <input type="submit" class="btn btn-default btn-sm" value="Edit Book">

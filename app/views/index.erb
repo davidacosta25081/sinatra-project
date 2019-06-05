@@ -1,12 +1,19 @@
 
 
+<% if logged_in? %>
+  <br/><br/><br/>
+  <b>Welcome back <%= current_user.username.capitalize %>!</b> <br/><br/>
+  <a href="/books"><button type="button">Your Books</button></a><br /><br />
+
+<%end %>
 
 <nav>
+<br/><br/>
   <% if !logged_in? %>
-
+    <p><font size="5" color="000000"><strong>Welcome to Book Center</strong></font></p><br/><br/>
     <p><font size="4" color="000000"><strong>Please Sign In or Sign Up below:</strong></font></p><br/><br/>
-    <a href="/login"> Sign In </a><br/><br/>
-    <a href="/signup">Sign Up</a>
+    <a href="/login">Sign In</a><br /><br />
+    <a href="/signup">Sign Up</a><br /><br />
   <%end %>
 
 </nav>
