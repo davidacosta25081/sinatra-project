@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
 
 
-get '/books/discover' do
+get '/discover' do
   erb :"books/discover"
 end
 
