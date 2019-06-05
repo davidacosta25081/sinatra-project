@@ -1,30 +1,15 @@
-LET'S DO IT !!!
 
-# Sinatra::Project
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sinatra/project`. To experiment with that code, run `bin/console` for an interactive prompt.
+BOOK CENTER
 
-TODO: Delete this and the text above, and describe your gem
-
+Welcome to my Sinatra-ActiveRecord gem. This app will allow to keep track of the books you read.
+It includes separate classes for User and Book and the controller actions map to the correct routes in order toprovide a "smooth" and logical user experience.
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'sinatra-project'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install sinatra-project
 
 ## Usage
 
-TODO: Write usage instructions here
+To use this app, just clone, run bundle install, rake db:migrate and then run shotgun. Everything should be set up.
 
 ## Development
 
